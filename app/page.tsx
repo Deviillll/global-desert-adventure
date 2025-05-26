@@ -11,7 +11,7 @@ import SafetyInfo from "@/components/SafEtyInfo";
 import ScrollVideo from "@/components/ScrollVideo";
 import Services from "@/components/Services";
 import Products from "@/components/products";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
