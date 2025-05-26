@@ -39,20 +39,20 @@ const Products = (props: Props) => {
     <div className=" h-[150vh] lg:h-[70vh] w-screen flex flex-col lg:flex-row  gap-y-3 justify-center items-center lg:gap-x-10 py-5 md:py-0 px-3">
      {
         data.map((item) => (
-        <Card key={item.id} className="w-full h-1/2 lg:w-[23%] lg:h-[85%] pt-0 overflow-hidden text-center text-white bg-[#F08522] border-0 mb-2 md:pb-7">
+        <Card key={item.id} className="w-full h-1/2 lg:w-[23%] lg:h-[85%] py-0 overflow-hidden text-center text-white bg-[#F08522] border-0  md:pb-7">
         <div className="h-1/2 ">
         <img src={item.image} alt="" className="h-full w-full object-center object-cover"/>
         </div>
         <CardHeader className="">
-          <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
-          <CardDescription className="text-white mt-4">
+          <CardTitle className="text-sm md:text-xl font-semibold">{item.title}</CardTitle>
+          <CardDescription className="text-white md:mt-4">
             {item.description}
           </CardDescription>
         
           <p className="text-sm font-semibold">{item.price}</p>
         </CardHeader>
        
-        <CardFooter className=" flex justify-center items-center ">
+        <CardFooter className=" flex justify-center md:items-center items-start">
           <button className="rounded-xl outline-2 outline-white px-4 py-1 cursor-pointer hover:bg-white hover:text-orange-400 transition-colors ease-linear duration-200" type="button">Book now</button>
         </CardFooter>
       </Card>

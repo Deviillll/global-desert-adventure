@@ -36,9 +36,9 @@ const data = [
 
 const KidsActivity = (props: Props) => {
   return (
-    <div className=" h-[150vh] lg:h-[70vh]  w-screen  px-5 text-center text-white py-5 md:py-0   flex flex-col justify-evenly items-center">
+    <div className=" h-[150vh] lg:h-[70vh]  w-screen  my-24 md:my-0 px-5 text-center text-white py-5 md:py-0   flex flex-col justify-evenly items-center">
        <div className="space-y-4 mb-5 md:mb-0">
-         <h1 className="text-5xl font-semibold uppercase">Our <span className="text-orange-400">Dubai Desert</span> Kids Activities</h1>
+         <h1 className=" text-3xl md:text-5xl font-semibold uppercase">Our <span className="text-orange-400">Dubai Desert</span> Kids Activities</h1>
         <p className="text-sm">Join us for an unforgettable day of family fun and create memories that will last a lifetime.</p>
        </div>
      <div className="flex flex-col lg:flex-row  gap-y-3 justify-center items-center lg:gap-x-10  w-screen h-full">

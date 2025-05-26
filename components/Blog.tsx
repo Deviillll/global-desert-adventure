@@ -48,49 +48,51 @@ const cards = [
 ];
 
 export default function Blog() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
+
 
   return (
-    <div className="min-h-[130vh] px-4 md:px-10 flex flex-col items-center my-10 gap-10">
+    <div className="min-h-[130vh] px-4 md:px-10 flex flex-col items-center my-10 gap-10 container">
+      <div className="text-center my-5">
+        <h1 className="text-3xl md:text-5xl font-bold uppercase text-white">
+          our <span className="text-orange-400">blog</span> articles
+        </h1>
+      </div>
       <div className="flex flex-col md:gap-10 gap-4 w-full md:w-[80%]">
         {[0, 3].map((startIndex) => (
           <div
             key={startIndex}
-            className="md:flex hidden justify-between gap-x-10 transition-all duration-500"
+            className="flex flex-col md:flex-row items-center jmd:ustify-between gap-y-5 md:gap-y-0 md:gap-x-10 transition-all duration-500"
           >
             {cards.slice(startIndex, startIndex + 3).map((card, i) => {
-              const absoluteIndex = startIndex + i;
-              const isHovered = hoveredIndex === absoluteIndex;
-
-              let width = "w-1/3";
-              if (
-                hoveredIndex !== null &&
-                hoveredIndex >= startIndex &&
-                hoveredIndex < startIndex + 3
-              ) {
-                width = isHovered ? "w-[50%]" : "w-[25%]";
-              }
+           
 
               return (
                 <Card
                   key={card.id}
-                //   onMouseEnter={() => setHoveredIndex(absoluteIndex)}
-                //   onMouseLeave={() => setHoveredIndex(null)}
+             
                   style={{
-                    filter:
-                      hoveredIndex === absoluteIndex
-                        ? "saturate(100%) brightness(80%)"
-                        : "saturate(0%) brightness(90%)",
+              
                     backgroundImage: `url(${card.color})`,
                   }}
-                  className={`${width}   h-[60vh] border-0 bg-cover rounded-none bg-center transition-all duration-300 ease-in-out relative overflow-hidden group`}
+                  className={`md:w-1/3 w-[90%] h-[43vh]  md:h-[55vh] border-0 bg-cover rounded-none bg-center transition-all duration-300 ease-in-out relative overflow-hidden group`}
                 >
-                  <div className="absolute inset-0 bg-orange-400/20 z-10  transition-transform duration-300"></div>
-                  <div className="absolute bottom-0 w-full p-4 text-white z-10 group-hover:-translate-y-6 transition-transform duration-300">
+                   <div
+                    className="absolute top-0 right-0  w-[400px] h-[0px] bg-orange-400/90 z-[8] transition-all duration-500 group-hover:h-[500px] origin-bottom-left"
+                    style={{
+                     clipPath: "polygon(100% 0, 0 0, 100% 38%)",
+                    }}
+                  ></div>
+                  <div
+                    className="absolute top-0  w-[300px] h-[400px] bg-white z-10 transition-all duration-500 group-hover:w-[1000px] origin-bottom-left"
+                    style={{
+                      clipPath: "polygon(0 0, 0% 100%, 100% 100%)",
+                    }}
+                  ></div>
+
+                  <div className="absolute top-[70%] w-full p-4 text-orange-400 z-[30] group-hover:-translate-y-6 transition-transform duration-300">
                     <h2 className="text-lg font-bold">{card.title}</h2>
                   </div>
-                  <div className="absolute bottom-0 w-full px-4 pb-4 pt-12 text-white  translate-y-full group-hover:translate-y-0 transition-transform duration-400">
+                  <div className="absolute top-[70%] w-full px-4 pb-4 pt-12 text-black  transition-transform duration-400">
                     <p>{card.description}</p>
                   </div>
                 </Card>
@@ -100,25 +102,29 @@ export default function Blog() {
         ))}
 
         {/* Mobile View */}
-        <div className="flex flex-col gap-4 md:hidden">
+        {/* <div className="flex flex-col gap-4 md:hidden">
           {cards.map((card, index) => {
             const isActive = clickedIndex === index;
             return (
               <Card
-               style={{
-                    filter:
-                      hoveredIndex === index || isActive
-                        ? "saturate(100%) brightness(80%)"
-                        : "saturate(0%) brightness(90%)",
-                    backgroundImage: `url(${card.color})`,
-                  }}
+                style={{
+                  filter:
+                    hoveredIndex === index || isActive
+                      ? "saturate(100%) brightness(80%)"
+                      : "saturate(0%) brightness(90%)",
+                  backgroundImage: `url(${card.color})`,
+                }}
                 key={card.id}
                 onClick={() =>
                   setClickedIndex(clickedIndex === index ? null : index)
                 }
                 className={`w-full h-[35vh] ${card.color} rounded-xl overflow-hidden relative transition-all duration-500 border-0 bg-cover bg-center`}
               >
-                <div className={`absolute  w-full p-4  text-white z-10 transition-all ease-in-out duration-500 ${isActive ? "bottom-16" : "bottom-0"}`}>
+                <div
+                  className={`absolute  w-full p-4  text-white z-10 transition-all ease-in-out duration-500 ${
+                    isActive ? "bottom-16" : "bottom-0"
+                  }`}
+                >
                   <h2 className="text-lg font-bold">{card.title}</h2>
                 </div>
                 <div
@@ -131,7 +137,7 @@ export default function Blog() {
               </Card>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </div>
   );
